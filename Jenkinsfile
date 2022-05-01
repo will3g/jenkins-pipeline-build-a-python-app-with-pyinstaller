@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install -r requirements.txt && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'sudo pip install -r requirements.txt && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
