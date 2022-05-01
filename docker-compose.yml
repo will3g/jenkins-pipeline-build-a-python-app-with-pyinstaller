@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - /home/william/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  app-ci-cd-example:
+    build: .
+    container_name: app-ci-cd-example
+    restart: on-failure
+    volumes:
+    - .:/code
+    ports:
+      - '5000:5000'
+    # command: honcho -d . -f Procfile.dev start
