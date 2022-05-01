@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'py.test --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'export PYTHONPATH=src && py.test --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
