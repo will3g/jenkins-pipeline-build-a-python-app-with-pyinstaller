@@ -15,11 +15,11 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'python:3'
+                    image 'qnib/pytest'
                 }
             }
             steps {
-                sh 'python3 -m venv env && python3 ./env/bin/activate && pip3 install --user flask pytest && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'py.test --verbose --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
