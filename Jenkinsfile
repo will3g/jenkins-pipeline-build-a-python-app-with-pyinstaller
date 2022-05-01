@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install flask && export PYTHONPATH=src && py.test --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'pip install --upgrade pip && pip install flask && export PYTHONPATH=src && py.test --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
