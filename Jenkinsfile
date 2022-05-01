@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip3 install --user -r requirements.txt && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'pip3 install --user -r flask pytest && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
