@@ -11,7 +11,7 @@ pipeline {
                 sh 'python -m py_compile src/app.py' 
                 stash(name: 'compiled-results', includes: 'src/*.py*') 
             }
-        },
+        }
         stage('Test') {
             agent {
                 docker {
