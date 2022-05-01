@@ -15,7 +15,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'ubuntu:18.04'
+                    image 'python:3'
                 }
             }
             steps {
