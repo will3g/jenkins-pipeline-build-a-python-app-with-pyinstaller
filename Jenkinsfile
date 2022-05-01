@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'export PYTHONPATH=src && sudo -H pip install flask pytest && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'export PYTHONPATH=src && pip install --user flask pytest && pytest --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
