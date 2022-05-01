@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'sudo apt install -y python-pip && sudo pip install -y virtualenv && virtualenv venv -p python3 && source venv/bin/activate && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'apt install -y python-pip && pip install -y virtualenv && virtualenv venv -p python3 && source venv/bin/activate && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
