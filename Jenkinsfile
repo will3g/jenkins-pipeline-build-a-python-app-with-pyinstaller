@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3 -m venv env && source ./env/bin/activate && pip3 install --user flask pytest && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
+                sh 'virtualenv venv -p python3 && ls && source ./venv/bin/activate && pip3 install --user flask pytest && export PYTHONPATH=src && pytest --junit-xml test-reports/results.xml tests/test_app.py'
             }
             post {
                 always {
