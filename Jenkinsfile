@@ -19,6 +19,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'pip install -r requirements.txt'
                 sh 'ls && export PYTHONPATH=. && py.test --junit-xml tests/results.xml tests/test_app.py'
                 stash(name: 'full-directory', includes: '.') 
             }
