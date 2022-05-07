@@ -19,10 +19,10 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install virtualenv --user && virtualenv venv -p python3 && source venv/bin/activate'
-                sh 'pip install -r requirements.txt --user'
-                sh 'ls && export PYTHONPATH=. && py.test --junit-xml tests/results.xml tests/test_app.py'
-                stash(name: 'full-directory', includes: '.') 
+                withPythonEnv('python3') {
+                    sh 'pip install -r requirements.txt --user'
+                    sh 'ls && export PYTHONPATH=. && py.test --junit-xml tests/results.xml tests/test_app.py'
+                }
             }
             post {
                 always {
