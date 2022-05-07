@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'ls && export PYTHONPATH=src && py.test --junit-xml tests/results.xml tests/test_app.py'
+                sh 'ls && export PYTHONPATH=. && py.test --junit-xml tests/results.xml tests/test_app.py'
                 stash(name: 'full-directory', includes: '.') 
             }
             post {
