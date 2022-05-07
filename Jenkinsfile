@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'export PYTHONPATH=$WORKSPACE:$PYTHONPATH && py.test --junit-xml tests/results.xml tests/test_app.py'
+                sh 'ls && export PYTHONPATH=$WORKSPACE:$PYTHONPATH && py.test --junit-xml tests/results.xml tests/test_app.py'
                 stash(name: 'full-directory', includes: '.') 
             }
             post {
