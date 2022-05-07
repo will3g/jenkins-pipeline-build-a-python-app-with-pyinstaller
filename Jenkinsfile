@@ -21,7 +21,7 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user -r requirements.txt'
-                    sh 'ls && export PYTHONPATH=. && py.test --junit-xml tests/results.xml tests/test_app.py'
+                    sh 'py.test --junit-xml tests/results.xml tests/test_app.py'
                 }
             }
             post {
